@@ -67,6 +67,7 @@ jobs:
           command: |
             npm i
             npm run build
+            ls -la
             cp .env.example .env
             cp .env dist/.env
             pwd && ls -al
