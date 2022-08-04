@@ -82,7 +82,10 @@ jobs:
       - checkout
       - restore_cache:
           keys: [frontend-build]
-      command: |
+      - run:
+          name: test-frontend
+          working_directory: ./frontend
+          command: |
             npm i
             npm run test
                 
@@ -93,7 +96,10 @@ jobs:
       - checkout
       - restore_cache:
           keys: [backend-build]
-      command: |
+      - run:
+          name: test-backend
+          working_directory: ./backend
+          command: |
             npm i
             npm run test
             
