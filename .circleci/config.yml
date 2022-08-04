@@ -67,6 +67,7 @@ jobs:
           command: |
             npm i
             npm run build
+            cp .env.example .env
             cp .env dist/.env
             pwd && ls -al
       - save_cache:
