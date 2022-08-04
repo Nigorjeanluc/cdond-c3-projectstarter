@@ -180,6 +180,14 @@ jobs:
             export API_URL="http://${backend_url}:3030"
             echo "API_URL = ${API_URL}"
             curl https://kvdb.io/GRkThmKJMbL9eTWpBLPotj/backend_url  -d "${API_URL}"
+      - slack/notify:
+          event: fail
+          mentions: '@Igor Ndiramiye'
+          template: basic_fail_1
+      - slack/notify:
+          event: pass
+          mentions: '@Igor Ndiramiye'
+          template: success_tagged_deploy_1
       - persist_to_workspace:
           root: ~/
           paths:
