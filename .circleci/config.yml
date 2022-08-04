@@ -103,21 +103,35 @@ jobs:
             npm i
             npm run test
             
-  # scan-frontend:
-  #   docker:
-  #     # Docker image here
-  #   steps:
-  #     # Checkout code from git
-  #     # Restore from cache
-  #     # Your job code here
+  scan-frontend:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - checkout
+      - restore_cache:
+          keys: [frontend-build]
+      - run:
+          name: Front-end scan
+          working_directory: ./frontend
+          command: |
+            npm install
+            npm audit fix --audit-level=critical --force
+            npm audit --audit-level=critical
 
-  # scan-backend:
-  #   docker:
-  #     # Docker image here
-  #   steps:
-  #     # Checkout code from git
-  #     # Restore from cache
-  #     # Your job code here
+  scan-backend:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - checkout
+      - restore_cache:
+          keys: [backend-build]
+      - run:
+          name: Back-end scan
+          working_directory: ./backend
+          command: |
+            npm install
+            npm audit fix --audit-level=critical --force
+            npm audit --audit-level=critical
 
   # deploy-infrastructure:
   #   docker:
