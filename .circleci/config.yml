@@ -71,7 +71,6 @@ jobs:
             npm i
             npm run build
             ls -la
-            cp .env.sample .env
             cp .env dist/.env
             pwd && ls -al
       - save_cache:
@@ -233,7 +232,6 @@ jobs:
           name: Run migrations
           command: |
             cd backend
-            cp .env.sample .env
             cat .env
             npm i
             npm run build
