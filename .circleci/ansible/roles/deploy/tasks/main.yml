@@ -7,13 +7,7 @@
         - openssh
         - rsync
       state: present
-      
-  - name: "Build backend"
-    become: yes
-    shell:
-      cd /root/project/backend
-      npm install
-      npm run build
+
   - name: "move files to server"
     become: yes
     synchronize:
