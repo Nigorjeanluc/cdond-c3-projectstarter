@@ -11,4 +11,4 @@ Public URLs to deployed application back-end in EC2 [URL04]
   http://ec2-54-86-182-217.compute-1.amazonaws.com:3030/api/status
 
 Public URL to your Prometheus Server [URL05]
-  http://ec2-54-89-188-236.compute-1.amazonaws.com:9090/
+  http://ec2-52-207-219-151.compute-1.amazonaws.com:9090/
