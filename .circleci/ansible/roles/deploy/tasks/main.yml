@@ -7,12 +7,6 @@
         - openssh
         - rsync
       state: present
-
-
-  - name: "run build"
-    become: true
-    command: 
-      pm2 buiild
       
   - name: "move files to server"
     become: yes
