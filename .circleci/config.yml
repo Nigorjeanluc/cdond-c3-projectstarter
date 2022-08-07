@@ -359,7 +359,14 @@ jobs:
             pwd
             export backend_url=$(curl --insecure  https://kvdb.io/GRkThmKJMbL9eTWpBLPotj/backend_url)
             echo $backend_url
+            echo "$backend_url/api/status"
             curl "$backend_url/api/status"
+            if curl "$backend_url/api/status" | grep "ok"
+            then
+              exit 0
+            else
+              exit 1
+            fi
       - run:
           name: Frontend smoke test.
           command: |
