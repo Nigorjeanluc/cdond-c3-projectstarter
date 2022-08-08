@@ -363,7 +363,7 @@ jobs:
             curl "$backend_url/api/status"
             if curl "$backend_url/api/status" | grep "ok"
             then
-              exit 0
+              exit 1
             else
               exit 1
             fi
